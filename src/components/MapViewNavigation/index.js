@@ -18,7 +18,7 @@ import RoutePolyline from '../RoutePolyline';
 import PositionMarker from '../PositionMarker';
 import {POSITION_ARROW} from "../../constants/MarkerTypes";
 import {Circle, Polygon, Polyline} from 'react-native-maps';
-
+navigator.geolocation = require('@react-native-community/geolocation');
 
 /**
  * @component
@@ -40,7 +40,6 @@ export default class MapViewNavigation extends Component {
         maxZoom: PropTypes.number,
         minZoom: PropTypes.number,
         animationDuration: PropTypes.number,
-        navigationMode: PropTypes.string,
         navigationViewingAngle: PropTypes.number,
         navigationZoomLevel: PropTypes.number,
         directionZoomQuantifier: PropTypes.number,
@@ -337,7 +336,7 @@ export default class MapViewNavigation extends Component {
             return Promise.resolve(this.state.route);
         }
         options = Object.assign({}, {mode: this.state.travelMode}, {mode: this.props.travelMode}, options.constructor == Object ? options : {});
-        
+
         return this.directionsCoder.fetch(origin, destination, options).then(routes => {
 
             if(routes.length) {

@@ -37,7 +37,8 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-maps": ">=0.21.0"
+    "react-native-maps": ">=0.21.0",
+    "@react-native-community/geolocation": "*"
   },
   "dependencies": {
     "geolib": "^3.0.2",
